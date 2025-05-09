@@ -73,7 +73,7 @@
         <div class="card">
           <div class="price">شقه للايجار 70م دور ارضي متأمنه حديد تشطيب سوبر لوكس </div>
           <div>غرفتين وحمام ومطبخ وريسبشن مطلوب4000 </div>
-          <div>الكود : C018</div>
+          <div class="code">الكود : C018</div>
           <div class="contact">📞 01029053170</div>
           <div class="contact">📞 01029700942</div>
           <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
@@ -147,7 +147,7 @@
     });
 
     const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
-    const phoneNumber = '+2001029053170'; 
+    const phoneNumber = '01029053170'; 
     
     whatsappButtons.forEach(button => {
       button.addEventListener('click', (e) => {
@@ -157,13 +157,14 @@
         
         const price = card.querySelector('.price').textContent;
         const details = card.querySelector('div:not(.price):not(.contact)').textContent;
+        const code = card.querySelector('.code').textContent;
         const contact = card.querySelector('.contact').textContent;
         
         const message = `مرحباً، أنا مهتم بالعقار التالي:
         
 ${price}
 ${details}
-
+      ${code}
 ${contact}
 
 الرجاء التواصل معي لمزيد من التفاصيل.`;
