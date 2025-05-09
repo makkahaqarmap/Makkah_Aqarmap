@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> dddddd </title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>العقارات المتاحه </h1>
+    <button class="menu-toggle" aria-label="Toggle menu">☰ القائمه </button>
+    <div class="header-info">
+      <a href="tel:+00000000000">📞 000000000000</a>
+      <a href="#">🌐 صفحتنا على فيسبوك</a>
+    </div>
+  </header>
+  <div class="container">
+    <aside id="sidebar">
+      <h3>المناطق</h3>
+      <a href="#m100">100 متر</a>
+      <a href="#m70">70 متر</a>
+      <a href="#m60">60 متر</a>
+      <a href="#tawen">تعاونيات</a>
+      <a href="#etihad">اتحاد تعاوني</a>
+    </aside>
+    <main>
+      <section id="m100">
+        <h2>شقق 100 متر</h2>
+        <div class="card">
+          <div class="price">إيجار: من 4500 إلى 5500 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+        <div class="card">
+          <div class="price">مفروش: من 6500 إلى 8000 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+      </section>
+
+      <section id="m70">
+        <h2>شقق 70 متر</h2>
+        <div class="card">
+          <div class="price">إيجار: من 3000 إلى 4200 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+        <div class="card">
+          <div class="price">مفروش: من 6000 إلى 7500 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+      </section>
+
+      <section id="m60">
+        <h2>شقق 60 متر</h2>
+        <div class="card">
+          <div class="price">إيجار: من 3000 إلى 4000 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+        <div class="card">
+          <div class="price">مفروش: من 5000 إلى 6000 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+      </section>
+
+      <section id="tawen">
+        <h2>تعاونيات</h2>
+        <div class="card">
+          <div class="price">مثال على شقة تعاونيات: 4200 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+      </section>
+
+      <section id="etihad">
+        <h2>اتحاد تعاوني</h2>
+        <div class="card">
+          <div class="price">مثال على شقة اتحاد تعاوني: 4000 جنيه</div>
+          <div>عدد الغرف: 2 + صالة + حمام + ريسبشن</div>
+          <div class="contact">📞 000000000000</div>
+          <a href="#" class="whatsapp-btn">التواصل عبر واتساب</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+    
+    const navLinks = document.querySelectorAll('aside a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('active');
+        }
+      });
+    });
+
+    const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
+    const phoneNumber = '00000000000'; 
+    
+    whatsappButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const card = button.closest('.card');
+        
+        const price = card.querySelector('.price').textContent;
+        const details = card.querySelector('div:not(.price):not(.contact)').textContent;
+        const contact = card.querySelector('.contact').textContent;
+        
+        const message = `مرحباً، أنا مهتم بالعقار التالي:
+        
+${price}
+${details}
+
+${contact}
+
+الرجاء التواصل معي لمزيد من التفاصيل.`;
+        
+        // Encode the message for URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Create WhatsApp URL
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+        
+        // Open WhatsApp
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
